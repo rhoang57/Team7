@@ -23,6 +23,8 @@
         </div>
     </main>
 
+    <button id="refrsh" value="submit">Refresh</button>
+
     <!--Section to upload photos from API -->
     <div class="container">
         <div class="row" id="photos-to-meme">
@@ -33,15 +35,21 @@
     <!--Add Meme text content-->
     <div id="meme-text">
         <form>
-            <textarea rows="2" cols="50"></textarea>
+            <textarea class="meme-input" rows="2" cols="50"></textarea>
             <br >
-            <button value="submit">Submit</button>
+            <button class="submit" value="submit">Submit</button>
         </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!--div to display memes from firebase-->
+    <div id="meme-pull"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
     <script src="assets/javascript/md5.js"></script>
     <script src="assets/javascript/marvelapi.js"></script>
+    <script src="assets/javascript/firebase.js"></script>
+    <script src="assets/javascript/logic.js"></script>
 </body>
 </html>
