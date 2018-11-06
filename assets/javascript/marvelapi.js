@@ -29,7 +29,7 @@ function getRandomMarvelCharacters(charactersToretrieve) {
     let randomAlphabetIndex = Math.floor(Math.random() * 25);
     // Select random letter to grab characters:
     let randomLetter = alphabet[randomAlphabetIndex];
-    let queryURL = `http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${randomLetter}&limit=${charactersToretrieve}&apikey=${SCOTT_PUBLIC_KEY}&hash=${queryHash}`;
+    let queryURL = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${randomLetter}&limit=${charactersToretrieve}&apikey=${SCOTT_PUBLIC_KEY}&hash=${queryHash}`;
     console.log(queryURL);
     $.ajax({
       url: queryURL,
