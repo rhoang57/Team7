@@ -11,31 +11,31 @@ var pitchValue = document.querySelector('.pitch-value');
 var rate = document.querySelector('#rate');
 var rateValue = document.querySelector('.rate-value');
 
-var voices = [];
+//var voices = [];
 
-function populateVoiceList() {
-  voices = synth.getVoices();
-  var selectedIndex = voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex;
-  voiceSelect.innerHTML = '';
-  for(i = 0; i < voices.length ; i++) {
-    var option = document.createElement('option');
-    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+// function populateVoiceList() {
+//   voices = synth.getVoices();
+//   var selectedIndex = voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex;
+//   voiceSelect.innerHTML = '';
+//   for(i = 0; i < voices.length ; i++) {
+//     var option = document.createElement('option');
+//     option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
     
-    if(voices[i].default) {
-      option.textContent += ' -- DEFAULT';
-    }
+//     if(voices[i].default) {
+//       option.textContent += ' -- DEFAULT';
+//     }
 
-    option.setAttribute('data-lang', voices[i].lang);
-    option.setAttribute('data-name', voices[i].name);
-    voiceSelect.appendChild(option);
-  }
-  voiceSelect.selectedIndex = selectedIndex;
-}
+//     option.setAttribute('data-lang', voices[i].lang);
+//     option.setAttribute('data-name', voices[i].name);
+//     voiceSelect.appendChild(option);
+//   }
+//   voiceSelect.selectedIndex = selectedIndex;
+// }
 
-populateVoiceList();
-if (speechSynthesis.onvoiceschanged !== undefined) {
-  speechSynthesis.onvoiceschanged = populateVoiceList;
-}
+//populateVoiceList();
+// if (speechSynthesis.onvoiceschanged !== undefined) {
+//   speechSynthesis.onvoiceschanged = populateVoiceList;
+// }
 
 function speak(textToSpeak){
     if (synth.speaking) {
@@ -70,14 +70,14 @@ inputForm.onsubmit = function(event) {
   inputTxt.blur();
 }
 
-pitch.onchange = function() {
-  pitchValue.textContent = pitch.value;
-}
+// pitch.onchange = function() {
+//   pitchValue.textContent = pitch.value;
+// }
 
-rate.onchange = function() {
-  rateValue.textContent = rate.value;
-}
+// rate.onchange = function() {
+//   rateValue.textContent = rate.value;
+// }
 
-voiceSelect.onchange = function(){
-  speak();
-}
+// voiceSelect.onchange = function(){
+//   speak();
+// }
