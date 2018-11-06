@@ -21,7 +21,7 @@ function displayCharactersOnPage() {
     }
 }
 
-function getRandomMarvelCharacters(charactersToRetreive) {
+function getRandomMarvelCharacters(charactersToretrieve) {
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let date = new Date();
     let timestamp = date.getTime();
@@ -29,7 +29,7 @@ function getRandomMarvelCharacters(charactersToRetreive) {
     let randomAlphabetIndex = Math.floor(Math.random() * 25);
     // Select random letter to grab characters:
     let randomLetter = alphabet[randomAlphabetIndex];
-    let queryURL = `http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${randomLetter}&limit=${charactersToRetreive}&apikey=${SCOTT_PUBLIC_KEY}&hash=${queryHash}`;
+    let queryURL = `http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${randomLetter}&limit=${charactersToretrieve}&apikey=${SCOTT_PUBLIC_KEY}&hash=${queryHash}`;
     console.log(queryURL);
     $.ajax({
       url: queryURL,
@@ -40,10 +40,6 @@ function getRandomMarvelCharacters(charactersToRetreive) {
         displayCharactersOnPage();
     });
 }
-
-$(document).ready(function(event) {
-    getRandomMarvelCharacters(6);
-});
 
 $(document).on('click', '.thumbnail-to-meme', function() {
     // When a user clicks on any div that has class 'thumbnail-to-meme':
