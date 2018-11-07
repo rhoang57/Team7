@@ -41,15 +41,4 @@ function getRandomMarvelCharacters(charactersToretrieve) {
     });
 }
 
-$(document).on('click', '.thumbnail-to-meme', function() {
-    // When a user clicks on any div that has class 'thumbnail-to-meme':
-    console.log('clicked', this);
-    // hide all characters
-    $('.thumbnail-to-meme').hide();
-    // find character that user selected:
-    let selectedCharacter = $(this)
-    // show the character and make it big!
-    selectedCharacter.show();
-    selectedCharacter.attr('class', 'col-12 mx-auto');
-    selectedCharacter.find('img').attr('width', '600');
-});
+
