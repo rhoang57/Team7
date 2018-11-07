@@ -1,3 +1,13 @@
-body {
-    background: blue;
+.jumbotron {
+    padding: 0px;
+    background-color: #ed1d24;
+}
+
+#refresh {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#meme-URL-div {
+    margin-bottom: 5%;
 }
