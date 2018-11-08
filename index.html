@@ -48,10 +48,10 @@
 
                 <!--Add button to preview text-to-speech and another text area and button to add Meme text content-->
                 <form>
-                    <textarea class="meme-input form-control" rows="4"></textarea>
+                    <textarea id="meme-text-to-speak" class="meme-input form-control" rows="4"></textarea>
                     <br>
-                    <button id="textToSpeech" class="btn-block" value="submit">Text-to-Speech Preview</button>
-                    <button class="submit btn-block" value="submit">Submit</button>
+                    <button id="speak-entered-text" class="btn-block">Text-to-Speech Preview</button>
+                    <button id="save-meme" class="submit btn-block">Save Meme</button>
                 </form>
             </div>
         </div>
@@ -108,6 +108,7 @@
     <script src="assets/javascript/md5.js"></script>
     <script src="assets/javascript/marvelapi.js"></script>
     <script src="assets/javascript/firebase.js"></script>
+    <script src="assets/javascript/speakeasy.js"></script>
     <script src="assets/javascript/logic.js"></script>
 </body>
 
