@@ -1,5 +1,5 @@
 // Globals to reference the current meme picture and text:
-let memeImageSRC, memeCaption;
+let memeImageSRC, memeCaption, memeURL;
 
 function displayMemeCreation() {
     // Display the initial state, create-a-meme
@@ -42,7 +42,7 @@ function displayPermalink() {
 
 $("#refresh").on("click", function () {
     // Display new characters.
-    displayCharactersOnPage();
+    getRandomMarvelCharacters(6);
 });
 
 $('#speak-entered-text').on('click', function() {
@@ -69,6 +69,21 @@ $(document).on('click', '#save-meme', function() {
     console.log('src is', memeImageSRC);
     console.log('caption is', memeCaption);
     saveMemeToFirebase();
+});
+
+$(document).on('click', '#copy-url', function() {
+    event.preventDefault();
+    var copyText = document.getElementById("meme-URL");
+    /* Select the text field */
+    copyText.select();
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+    console.log("Copied the text: " + copyText.value);
+
+
 });
 
 $(document).ready(function(event) {
