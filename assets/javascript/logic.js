@@ -23,6 +23,9 @@ function displayMemeEditor() {
 function displayPermalink() {
     // Display the final created meme along with permalink.
     // Also loads if someone visits the page via a permalink.
+    $('#initial-mode').hide();
+    $('#edit-mode').hide();
+    $('#share-mode').show();
     let url = $(location).attr('href');
     let memeId = null;
     if (url.includes('?')) {
@@ -30,10 +33,11 @@ function displayPermalink() {
         console.log(urlIDIndex);
         memeId = url.substring(url.indexOf('?') + 1, url.length);
         console.log('memeID is', memeId);
+        console.log('retrieving stored data...');
+        retrieveMeme(memeId);
+        console.log('returned')
     }
-    $('#initial-mode').hide();
-    $('#edit-mode').hide();
-    $('#share-mode').show();
+    
 }
 
 $("#refresh").on("click", function () {
@@ -71,7 +75,9 @@ $(document).ready(function(event) {
     // When page loads, determine if we should display a completed meme (via permalink)
     // or alternately, the default meme creation mode:
     let url = $(location).attr('href');
+    console.log('url is', url);
     if (url.includes('?')) {
+        console.log('displaying permalink...');
         displayPermalink();
     }
     else {

@@ -4,16 +4,16 @@ console.log("marvelapi.js linked");
 let randomMarvelCharacters = [];
 
 function displayCharactersOnPage() {
+    // Display the characters from marvel and make them selectable:
     let div = $('#photos-to-meme');
     console.log(randomMarvelCharacters);
     for(let i = 0; i < randomMarvelCharacters.length; i++) {
         let thumbnailDiv = $('<div>');
         thumbnailDiv.attr('class', 'thumbnail-to-meme col-6 col-sm-4 col-lg-3 col-xl-2');
         thumbnailDiv.attr('data-character-name', randomMarvelCharacters[i].name);
-        thumbnailDiv.attr('data-wiki-link', randomMarvelCharacters[i].urls[1].url);
+        //thumbnailDiv.attr('data-wiki-link', randomMarvelCharacters[i].urls[1].url);
         let img = $('<img>');
         img.addClass('img-responsive p-2')
-        //img.attr('class', 'img-responsive p-2');
         img.attr('src', `${randomMarvelCharacters[i].thumbnail.path}.${randomMarvelCharacters[i].thumbnail.extension}`);
         img.attr('width', '200');
         thumbnailDiv.append(img);
@@ -22,6 +22,7 @@ function displayCharactersOnPage() {
 }
 
 function getRandomMarvelCharacters(charactersToretrieve) {
+    // Retrieves the first n characters from the marvel api of a given letter. (pseudo-random)
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let date = new Date();
     let timestamp = date.getTime();
