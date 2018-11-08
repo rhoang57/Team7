@@ -61,7 +61,7 @@ let allMemes;
         console.log('SRC', memeImageSRC);
         let imageToMeme = $('<img>');
         imageToMeme.attr('src', memeImageSRC);
-        imageToMeme.attr('width', '600');
+        imageToMeme.attr('width', '90%');
         $('#meme-image-share').empty();
         $('#meme-image-share').append(imageToMeme);
         $('#meme-text-share').empty();

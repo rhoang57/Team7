@@ -16,7 +16,7 @@ function displayMemeEditor() {
     $('#share-mode').hide();
     let imageToMeme = $('<img>');
     imageToMeme.attr('src', memeImageSRC);
-    imageToMeme.attr('width', '600');
+    imageToMeme.attr('width', '100%');
     $('#photo-to-edit').append(imageToMeme);
 }
 
