@@ -1,3 +1,6 @@
+// Global to store all retrieved memes:
+let allMemes;
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB1w52iXv9J1pNh-kXGGBGbLaw7AAxaATk",
@@ -13,41 +16,56 @@
   function saveMemeToFirebase() {
     // called from logic.js to save to the database:
     console.log('Saving meme to firebase...');
+    let uniqueID = randomString(8);
     database.ref().push({
       imageSrc: memeImageSRC,
-      caption: memeCaption
+      caption: memeCaption,
+      url: uniqueID
     }).then((snap) => {
       // after the database updates, save the key to display the permalink.
-      const key = snap.key;
-      console.log('key saved as', key);
-      $('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + key);
+      //let key = snap.key;
+      //key = key.substring(1, key.length);
+      //console.log('key saved as', key);
+      //$('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + key);
+      $('#meme-URL').val(uniqueID);
       displayPermalink();
    });
   }
-  
-  //variables for firebase pull
-  //var meme = "";
-  //var memeText = "";
 
-  //on click submit button pushing information to firebase
-  // $(".submit").on("click", function (event) {
-  //   event.preventDefault();
+  function randomString(length) {
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
+    if (! length) {
+        length = Math.floor(Math.random() * chars.length);
+    }
+    var str = '';
+    for (var i = 0; i < length; i++) {
+        str += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return str;
+}
 
-  //   memeText = $(".meme-input").val().trim();
+  function retrieveMeme(key) {
 
-  //   database.ref().push({
-  //     //photo: selectedCharacter,
-  //     writing: memeText
-  //   });
-  // });
+  database.ref().on("value", function(snapshot) {
+    
+    allMemes = snapshot.val();
+    
+    console.log('allMemes saved', snapshot.val()); // here's your data object
 
-  //pulling info from firebase and displaying to the div meme-pull
-  // todo: create 4th edit mode where memes are visible:
-  // database.ref().on("child_added", function(childSnapshot) {
-  //   memePullDiv = $("<div>");
-  //   $("#meme-pull").append(memePullDiv).append(
-  //     //childSnapshot.val().photo + 
-  //     childSnapshot.val().writing);
-  //   }, function(errorObject) {
-  //   console.log("Error " + errorObject.code);
-  // });
+    for (const prop in allMemes) {
+      if (allMemes[prop].url == key) {
+        console.log(allMemes[prop]);
+        memeImageSRC = allMemes[prop].imageSrc;
+        memeCaption = allMemes[prop].caption;
+        console.log('SRC', memeImageSRC);
+        let imageToMeme = $('<img>');
+        imageToMeme.attr('src', memeImageSRC);
+        imageToMeme.attr('width', '600');
+        $('#meme-URL-div').append(imageToMeme);
+        $('#meme-URL-div').append(memeCaption);
+
+      }
+    }
+
+  });
+}
