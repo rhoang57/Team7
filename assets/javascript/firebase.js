@@ -57,13 +57,16 @@ let allMemes;
         console.log(allMemes[prop]);
         memeImageSRC = allMemes[prop].imageSrc;
         memeCaption = allMemes[prop].caption;
+        memeURL = allMemes[prop].url;
         console.log('SRC', memeImageSRC);
         let imageToMeme = $('<img>');
         imageToMeme.attr('src', memeImageSRC);
         imageToMeme.attr('width', '600');
-        $('#meme-URL-div').append(imageToMeme);
-        $('#meme-URL-div').append(memeCaption);
-
+        $('#meme-image-share').empty();
+        $('#meme-image-share').append(imageToMeme);
+        $('#meme-text-share').empty();
+        $('#meme-text-share').append(memeCaption);
+        $('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + memeURL);
       }
     }
 
