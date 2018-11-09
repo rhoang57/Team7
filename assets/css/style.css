@@ -20,8 +20,8 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     position: relative;
-    top: -100px;
-   
+    top: -200px;
+    font-size: 3rem;
 }
 
 #learn-more {

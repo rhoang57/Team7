@@ -17,7 +17,7 @@ function displayCharactersOnPage() {
         img.attr('src', `${randomMarvelCharacters[i].thumbnail.path}.${randomMarvelCharacters[i].thumbnail.extension}`);
         img.attr('width', '200');
         thumbnailDiv.append(img);
-        div.append(thumbnailDiv);
+        div.prepend(thumbnailDiv);
     }
 }
 

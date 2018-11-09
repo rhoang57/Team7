@@ -3,6 +3,7 @@
 var synth = window.speechSynthesis;
 
 function speak(textToSpeak){
+    console.log('speakeasy.js is speaking:', textToSpeak);
     if (synth.speaking) {
         console.error('speechSynthesis.speaking');
         return;

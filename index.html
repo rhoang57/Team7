@@ -65,15 +65,15 @@
             <div class='col-12'>
                 <p><strong>Share Mode: </strong>Copy your meme's unique URL and share it on your social media.</p>
             </div>
-            <div id="meme-image-share" class="col-6 text-center">
+            <div id="meme-image-share" class="col-12 text-center">
                 <!--Dynamically append single photo with class attribute of 'col-12'-->
             </div>
-            <div id="learn-more" class="col-6">
-                <!--Dynamically append character info and url for more info on the character here-->
+            <!--Dynamically append character info and url for more info on the character here-->
+            <!-- <div id="learn-more" class="col-6">
                 <p>Marvel Character's Name: <span id="charactersName"> </span></p>
                 <p>Read your selected character's bio here:</p><br>
                 <span id="charactersBio"> </span>
-            </div>
+            </div> -->
         </div>
 
         <div class="row">
@@ -104,7 +104,7 @@
                     /* Alert the copied text */
                     alert("Copied the text: " + copyText.value);
                   }-->
-                <button onclick="myFunction()">Copy URL</button>
+                <button id="copy-url">Copy URL</button>
             </div>
 
         

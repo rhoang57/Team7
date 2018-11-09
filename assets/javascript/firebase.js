@@ -22,17 +22,13 @@ let allMemes;
       caption: memeCaption,
       url: uniqueID
     }).then((snap) => {
-      // after the database updates, save the key to display the permalink.
-      //let key = snap.key;
-      //key = key.substring(1, key.length);
-      //console.log('key saved as', key);
-      //$('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + key);
-      $('#meme-URL').val(uniqueID);
-      displayPermalink();
+      $('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + uniqueID);
    });
   }
 
   function randomString(length) {
+    // generate a random string of a given length of characters
+    // used to create unique IDs for the saved memes
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     if (! length) {
         length = Math.floor(Math.random() * chars.length);
@@ -45,13 +41,9 @@ let allMemes;
 }
 
   function retrieveMeme(key) {
-
   database.ref().on("value", function(snapshot) {
-    
     allMemes = snapshot.val();
-    
     console.log('allMemes saved', snapshot.val()); // here's your data object
-
     for (const prop in allMemes) {
       if (allMemes[prop].url == key) {
         console.log(allMemes[prop]);
@@ -59,16 +51,9 @@ let allMemes;
         memeCaption = allMemes[prop].caption;
         memeURL = allMemes[prop].url;
         console.log('SRC', memeImageSRC);
-        let imageToMeme = $('<img>');
-        imageToMeme.attr('src', memeImageSRC);
-        imageToMeme.attr('width', '90%');
-        $('#meme-image-share').empty();
-        $('#meme-image-share').append(imageToMeme);
-        $('#meme-text-share').empty();
-        $('#meme-text-share').append(memeCaption);
+        appendPicInPermalink();
         $('#meme-URL').val('https://rhoang57.github.io/Team7/index.html?' + memeURL);
       }
     }
-
   });
 }
