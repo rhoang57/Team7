@@ -21,6 +21,7 @@ function displayCharactersOnPage() {
 
         $("#charactersName").text(randomMarvelCharacters[i].name);
         $("#moreInfoName").text(randomMarvelCharacters[i].name);
+        
     }
 }
 
