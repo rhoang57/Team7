@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Group 7 Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Michroma|Rubik+Mono+One" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -26,8 +26,8 @@
     <div id="initial-mode" class="container">
         <div class='row'>
             <div class='col-12'>
-                <p>Click on a Marvel character below to begin generating your meme</p>
-                <button id="refresh" value="submit">Refresh</button>
+                <p><strong>Selection Mode: </strong>Click on a Marvel character below to begin generating your meme</p>
+                <button id="refresh" value="submit">Click this button for more Marvelous characters</button>
             </div>
         </div>
         <div class="row" id="photos-to-meme">
@@ -65,27 +65,24 @@
             <div class='col-12'>
                 <p><strong>Share Mode: </strong>Copy your meme's unique URL and share it on your social media.</p>
             </div>
-            <div id="meme-image-share" class="col-12 text-center">
+            <!--Dynamically append character info and url for more info on the character here-->
+            <div id="learn-more" class="col-md-6 offset-md-3 text-center">
+                <p><strong>Marvel Character: </strong><span id="charactersName"> </span></p>
+                <p><strong>Learn more about <span id="moreInfoName"> </span>:</strong></p><br>
+                <span id="charactersBio"> </span>
+            </div>
+
+            <div id="meme-image-share" class="col-md-6 offset-md-3 text-center">
                 <!--Dynamically append single photo with class attribute of 'col-12'-->
             </div>
-            <!--Dynamically append character info and url for more info on the character here-->
-            <!-- <div id="learn-more" class="col-6">
-                <p>Marvel Character's Name: <span id="charactersName"> </span></p>
-                <p>Read your selected character's bio here:</p><br>
-                <span id="charactersBio"> </span>
-            </div> -->
         </div>
 
-        <div class="row">
-            <div id="meme-text-share" class="col-6 text-center">
+        
+            <div id="meme-text-share" class="col-md-6 offset-md-3 text-center respond-text">
 
             <!--Add user generated meme text to be displayed in this div-->
             </div>
-            <div class="col-6">
-            <!--offset image to be placed here-->
-            </div>
-        </div>
-
+            
             <div id="meme-URL-div" class="col-12 text-center">
                 <!-- ***The text field to hold unique meme URL within the value attribute-->
                 <input type="text" value="" id="meme-URL" style="width:60%">
@@ -107,13 +104,8 @@
                 <button id="copy-url">Copy URL</button>
             </div>
 
-        
     </div>
 
-
-
-    <!--div to display memes from firebase-->
-    <div id="meme-pull"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

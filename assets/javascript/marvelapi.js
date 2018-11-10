@@ -13,11 +13,14 @@ function displayCharactersOnPage() {
         thumbnailDiv.attr('data-character-name', randomMarvelCharacters[i].name);
         //thumbnailDiv.attr('data-wiki-link', randomMarvelCharacters[i].urls[1].url);
         let img = $('<img>');
-        img.addClass('img-responsive p-2')
+        img.addClass('img-responsive p-2 clickable')
         img.attr('src', `${randomMarvelCharacters[i].thumbnail.path}.${randomMarvelCharacters[i].thumbnail.extension}`);
         img.attr('width', '200');
         thumbnailDiv.append(img);
         div.prepend(thumbnailDiv);
+
+        $("#charactersName").text(randomMarvelCharacters[i].name);
+        $("#moreInfoName").text(randomMarvelCharacters[i].name);
     }
 }
 

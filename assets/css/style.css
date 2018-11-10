@@ -4,28 +4,45 @@
     margin-top: 1%;
 }
 
-#refresh {
-    margin-left: 15px;
-    margin-bottom: 15px;
+img.clickable {
+    cursor: pointer;
 }
+
+button {
+    cursor: pointer;
+}
+
+#refresh {
+    margin-bottom: 15px;
+    background-color: #ed1d24;
+    color: white;
+}
+
+#refresh:hover {
+    background-color: #ca1e24;
+    color: yellow;
+}
+
 
 #meme-URL-div {
     margin-bottom: 5%;
 }
 
+#charactersName {
+    font-family: 'Michroma', sans-serif;
+}
+
 #meme-text-share {
-    width: 75%;
+    width: 100%;
     font-family: 'Rubik Mono One', sans-serif;
     color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     position: relative;
-    top: -200px;
-    font-size: 3rem;
-}
-
-#learn-more {
-    outline: 2px dashed red;
+    top: -150px;
+    font-size: 2.5vw;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 #offset-image {
@@ -37,3 +54,14 @@
 #photo-to-edit {
     margin-bottom: 1%; 
 }
+
+@media screen and (min-width: 768px) {
+    div.respond-text {
+      font-size: 1vw;
+    }
+  }
+  
+@media screen and (max-width: 767px) {
+    div.respond-text {
+      font-size: 2.5vw;
+    }
