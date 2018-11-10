@@ -18,6 +18,8 @@ function displayCharactersOnPage() {
         img.attr('width', '200');
         thumbnailDiv.append(img);
         div.append(thumbnailDiv);
+
+        $("#charactersName").text(randomMarvelCharacters[i].name);
     }
 }
 

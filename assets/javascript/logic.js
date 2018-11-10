@@ -37,7 +37,6 @@ function displayPermalink() {
         retrieveMeme(memeId);
         console.log('returned')
     }
-    
 }
 
 $("#refresh").on("click", function () {
