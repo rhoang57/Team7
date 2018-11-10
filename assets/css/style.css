@@ -40,7 +40,7 @@ button {
     -webkit-text-stroke-color: black;
     position: relative;
     top: -150px;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -65,3 +65,4 @@ button {
     div.respond-text {
       font-size: 2.5vw;
     }
+}
